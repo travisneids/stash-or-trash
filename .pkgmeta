@@ -1,10 +1,12 @@
 # BigWigs packager config: https://github.com/BigWigsMods/packager
 # The addon lives in a subfolder, so it is moved to the top of the zip and the
-# rest of the repository is left out.
+# rest of the repository is left out. CHANGELOG.md stays out of the zip so the
+# packager reads it from the checkout for the release notes (a copy inside the
+# moved folder is gone by the time it creates the GitHub release).
 package-as: stash-or-trash
 
 manual-changelog:
-  filename: StashOrTrash/CHANGELOG.md
+  filename: CHANGELOG.md
   markup-type: markdown
 
 move-folders:
@@ -16,3 +18,4 @@ ignore:
   - tools
   - README.md
   - LICENSE
+  - CHANGELOG.md

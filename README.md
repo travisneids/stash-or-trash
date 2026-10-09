@@ -137,7 +137,7 @@ GitHub Actions runs the suite on every push to `main` and on pull requests.
 
 ## Releasing
 
-1. Add a section for the new version at the top of `StashOrTrash/CHANGELOG.md`.
+1. Add a section for the new version at the top of `CHANGELOG.md`.
 2. Tag and push:
    ```sh
    git tag v0.2.0
