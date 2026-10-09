@@ -46,7 +46,13 @@ The same `StashOrTrash` folder works in both games; each client picks its own `.
 | WoW Forever (beta) | `World of Warcraft\_classic_beta_\Interface\AddOns\` | `StashOrTrash.toc` | `Data/Recipes_Forever.lua` |
 | Classic Era / Hardcore / Self-Found | `World of Warcraft\_classic_era_\Interface\AddOns\` | `StashOrTrash_Vanilla.toc` | `Data/Recipes_Era.lua` |
 
-Copy the `StashOrTrash` folder (not the repository root) into that folder. From
+Download the latest `stash-or-trash-<version>.zip` from
+[Releases](https://github.com/travisneids/stash-or-trash/releases) and extract
+it into that folder; you should end up with `AddOns\StashOrTrash\`. (GitHub's
+green *Code → Download ZIP* button gives you the whole repository instead, which
+won't load as-is.)
+
+From a checkout, copy the `StashOrTrash` folder (not the repository root). From
 WSL, a symlink isn't followed by the Windows client, so copy instead:
 
 ```sh
@@ -126,6 +132,23 @@ These were checked against Blizzard's UI source for each client (Forever
   any, opening the profession window fills them in.
 - If a tooltip ever looks wrong, `/sot debug` prints any errors Stash or Trash
   hits while building the tooltip.
+
+GitHub Actions runs the suite on every push to `main` and on pull requests.
+
+## Releasing
+
+1. Add a section for the new version at the top of `StashOrTrash/CHANGELOG.md`.
+2. Tag and push:
+   ```sh
+   git tag v0.2.0
+   git push origin v0.2.0
+   ```
+
+The Release workflow runs the tests, then the
+[BigWigs packager](https://github.com/BigWigsMods/packager) builds
+`stash-or-trash-v0.2.0.zip` with only the `StashOrTrash` folder (configured in
+`.pkgmeta`), stamps the tag into `## Version:` in both `.toc` files, and
+publishes it as a GitHub Release with the changelog as its notes.
 
 ## License
 

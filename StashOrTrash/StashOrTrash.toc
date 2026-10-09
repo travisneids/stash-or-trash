@@ -2,7 +2,7 @@
 ## Title: Stash or Trash
 ## Notes: Adds to item tooltips which of your professions (and your alts') use the item, now or later — so you know what to keep and what to sell.
 ## Author: Travis Neiderhiser
-## Version: 0.1.0
+## Version: @project-version@
 ## Category: Professions
 ## SavedVariables: StashOrTrashDB
 ## IconTexture: 136241
