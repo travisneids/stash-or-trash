@@ -1,0 +1,16 @@
+## Interface: 11509
+## Title: Stash or Trash
+## Notes: Adds to item tooltips which of your professions (and your alts') use the item, now or later — so you know what to keep and what to sell.
+## Author: Travis Neiderhiser
+## Version: 0.1.0
+## Category: Professions
+## SavedVariables: StashOrTrashDB
+## IconTexture: 136241
+## AddonCompartmentFunc: StashOrTrash_OnAddonCompartmentClick
+
+Data\Recipes_Era.lua
+Core.lua
+Professions.lua
+Report.lua
+Tooltip.lua
+Options.lua
