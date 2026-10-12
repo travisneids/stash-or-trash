@@ -4,6 +4,7 @@
 ## Author: Travis Neiderhiser
 ## Version: @project-version@
 ## Category: Professions
+## X-Curse-Project-ID: 1741212
 ## SavedVariables: StashOrTrashDB
 ## IconTexture: 136241
 ## AddonCompartmentFunc: StashOrTrash_OnAddonCompartmentClick

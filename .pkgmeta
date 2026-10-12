@@ -19,3 +19,4 @@ ignore:
   - README.md
   - LICENSE
   - CHANGELOG.md
+  - media
