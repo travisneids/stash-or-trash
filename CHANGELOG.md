@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.1
+
+- First release on CurseForge. No changes in game since v0.1.0.
+
 ## v0.1.0
 
 - First release for WoW Forever (beta) and Classic Era / Hardcore.
