@@ -5,6 +5,7 @@
 ## Version: @project-version@
 ## Category: Professions
 ## X-Curse-Project-ID: 1741212
+## X-Wago-ID: aNerMB62
 ## SavedVariables: StashOrTrashDB
 ## IconTexture: 136241
 ## AddonCompartmentFunc: StashOrTrash_OnAddonCompartmentClick

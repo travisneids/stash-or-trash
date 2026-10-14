@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.2
+
+- First release on Wago Addons. No changes in game since v0.1.0.
+
 ## v0.1.1
 
 - First release on CurseForge. No changes in game since v0.1.0.
