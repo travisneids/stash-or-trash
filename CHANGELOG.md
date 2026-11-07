@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.3
+
+- Fix tooltip taint: refreshing the tooltip data from our code made Blizzard
+  rebuild the tooltip lines in a tainted state.
+
 ## v0.1.2
 
 - First release on Wago Addons. No changes in game since v0.1.0.
