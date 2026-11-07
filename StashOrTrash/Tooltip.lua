@@ -131,8 +131,10 @@ end
 -- Hooks
 ---------------------------------------------------------------------------
 
--- Tooltips we added lines to, so Shift can refresh them.
-local touched = setmetatable({}, { __mode = "k" })
+-- Note: we deliberately never call tooltip:RefreshData() from addon code (e.g. on
+-- Shift changes). That rebuilds Blizzard's tooltip lines under our taint, and
+-- secret color values then error in GameTooltip_AddColoredLine. The Shift list
+-- applies the next time the tooltip is shown.
 
 local function Process(tooltip, itemID)
 	if not ns.settings or not ns.settings.enabled then
@@ -145,7 +147,6 @@ local function Process(tooltip, itemID)
 		return
 	end
 	local ok, added = pcall(ns.AddToTooltip, tooltip, itemID)
-	touched[tooltip] = ok and added or nil
 	if not ok and ns.settings.debug then
 		ns.Print("tooltip error:", added)
 	end
@@ -171,17 +172,3 @@ function ns.HookTooltips()
 	end
 	return "OnTooltipSetItem"
 end
-
-ns.RegisterEvent("MODIFIER_STATE_CHANGED", function(_, key)
-	if not ns.settings or ns.settings.recipeList ~= ns.LIST_SHIFT then
-		return
-	end
-	if key ~= "LSHIFT" and key ~= "RSHIFT" then
-		return
-	end
-	for tooltip in pairs(touched) do
-		if tooltip:IsShown() and tooltip.RefreshData then
-			pcall(tooltip.RefreshData, tooltip)
-		end
-	end
-end)
