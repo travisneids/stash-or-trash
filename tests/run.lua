@@ -506,21 +506,13 @@ test("a gathering-heavy item: linen cloth for a tailor", function()
 	contains(text, "Tailoring")
 end)
 
-test("pressing shift refreshes a Stash or Trash tooltip in shift mode only", function()
-	local ns = Boot({ before = Alchemist(50) })
+test("pressing shift never refreshes a tooltip (RefreshData under taint breaks secret colors)", function()
+	Boot({ before = Alchemist(50) })
 	Show(PEACEBLOOM, GameTooltip)
 	GameTooltip.refreshed = 0
 	Mock.Fire("MODIFIER_STATE_CHANGED", "LSHIFT", 1)
-	eq(GameTooltip.refreshed, 1)
-	Mock.Fire("MODIFIER_STATE_CHANGED", "LCTRL", 1)
-	eq(GameTooltip.refreshed, 1, "other modifiers ignored")
-	ns.settings.recipeList = ns.LIST_ALWAYS
-	Mock.Fire("MODIFIER_STATE_CHANGED", "RSHIFT", 1)
-	eq(GameTooltip.refreshed, 1, "no refresh outside shift mode")
-	ns.settings.recipeList = ns.LIST_SHIFT
-	Show(HEARTHSTONE, GameTooltip)
-	Mock.Fire("MODIFIER_STATE_CHANGED", "LSHIFT", 1)
-	eq(GameTooltip.refreshed, 1, "tooltips without our lines are left alone")
+	Mock.Fire("MODIFIER_STATE_CHANGED", "RSHIFT", 0)
+	eq(GameTooltip.refreshed, 0)
 end)
 
 test("a secret player name doesn't break tooltips", function()
